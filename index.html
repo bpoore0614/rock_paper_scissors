@@ -17,6 +17,9 @@
     function playRound(computerSelection, playerSelection) {
         let lowerPlayerSelection = playerSelection.toLowerCase();
 
+        alert(playerSelection);
+        alert(computerSelection);
+
         if (lowerPlayerSelection == "rock" && computerSelection == "rock"){
             return "Tied! Both computer and player chose rock."
         } else if(lowerPlayerSelection == "rock" && computerSelection == "paper"){
@@ -30,7 +33,7 @@
         } else if (lowerPlayerSelection == "paper" && computerSelection == "scissors"){
             return "Computer wins. Scissors beat paper."
         } else if (lowerPlayerSelection == "scissors" && computerSelection == "rock"){
-            return "Computer wins. Scissors beat paper."
+            return "Computer wins. Rock beats scissors."
         } else if (lowerPlayerSelection == "scissors" && computerSelection == "paper"){
             return "Player wins. Scissors beat paper."
         } else if (lowerPlayerSelection == "scissors" && computerSelection == "scissors"){
@@ -44,6 +47,7 @@
         for(let i = 0; i < 5; i++){
             let customPlayerSelection = prompt("Type rock, paper or scissors");
             let winner = playRound(computerPlay(), customPlayerSelection);
+
             alert(winner);
             if(winner.substring(0,1) == "C"){
                 computerWins++;
