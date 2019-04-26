@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <script>
+    function computerPlay(){
+        let choice = "";
+        let randomNumer = Math.floor(Math.random(1)*100);
+        if(randomNumer <= 33){
+            choice = 'rock';
+        } else if (randomNumer <= 66){
+            choice = 'paper';
+        } else if (randomNumer <= 100 ) {
+            choice = 'scissors';
+        }
+        return choice;
+    }
+
+    function playRound(computerSelection, playerSelection) {
+        let lowerPlayerSelection = playerSelection.toLowerCase();
+
+        if (lowerPlayerSelection == "rock" && computerSelection == "rock"){
+            return "Tied! Both computer and player chose rock."
+        } else if(lowerPlayerSelection == "rock" && computerSelection == "paper"){
+            return "Computer wins. Paper beats rock.";
+        } else if(lowerPlayerSelection == "rock" && computerSelection == "scissors"){
+            return "Player wins! Rock beats scissors.";
+        } else if (lowerPlayerSelection == "paper" && computerSelection == "rock"){
+            return "Player wins! Paper beats rock."
+        } else if (lowerPlayerSelection == "paper" && computerSelection == "paper"){
+            return "Tied! Both computer and player chose paper."
+        } else if (lowerPlayerSelection == "paper" && computerSelection == "scissors"){
+            return "Computer wins. Scissors beat paper."
+        } else if (lowerPlayerSelection == "scissors" && computerSelection == "rock"){
+            return "Computer wins. Scissors beat paper."
+        } else if (lowerPlayerSelection == "scissors" && computerSelection == "paper"){
+            return "Player wins. Scissors beat paper."
+        } else if (lowerPlayerSelection == "scissors" && computerSelection == "scissors"){
+            return "Tied. Both computer and player chose scissors."
+        }
+    }
+
+    function game() {
+        let computerWins = 0;
+        let playerWins = 0;
+        for(let i = 0; i < 5; i++){
+            let customPlayerSelection = prompt("Type rock, paper or scissors");
+            let winner = playRound(computerPlay(), customPlayerSelection);
+            alert(winner);
+            if(winner.substring(0,1) == "C"){
+                computerWins++;
+            } else if(winner.substring(0,1)== "P"){
+                playerWins++;
+            }
+        }
+       if(computerWins > playerWins){
+           return "Computer wins. Computer won " + +computerWins + " and player won " + +playerWins;
+       } else if(playerWins > computerWins){
+           return "Player wins. Computer won " + +computerWins + " and player won " + +playerWins;
+       } else {
+           return "Computer and player won the same amount of games!"
+       }
+    }
+
+    const playerSelection = 'roCk';
+    // const computerSelection = computerPlay();
+    // console.log(playRound(computerSelection, playerSelection))
+    console.log(alert(game()));
+
+
+
+    </script>
+</html>
